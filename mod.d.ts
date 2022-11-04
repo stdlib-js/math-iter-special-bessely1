@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2020 The Stdlib Authors.
@@ -16,16 +16,27 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 2.0
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { Iterator as Iter, IterableIterator } from '@stdlib/types/iter';
+
+// Define a union type representing both iterable and non-iterable iterators:
+type Iterator = Iter | IterableIterator;
 
 /**
-* Create an iterator which iteratively evaluates the Bessel function of the second kind of order one.
+* Returns an iterator which iteratively evaluates the Bessel function of the second kind of order one.
 *
-* @module @stdlib/math-iter-special-bessely1
+* ## Notes
+*
+* -   If an environment supports `Symbol.iterator` **and** a provided iterator is iterable, the returned iterator is iterable.
+*
+* @param iterator - input iterator
+* @returns iterator
 *
 * @example
-* var randu = require( '@stdlib/random-iter-randu' );
-* var iterBessely1 = require( '@stdlib/math-iter-special-bessely1' );
+* var randu = require( `@stdlib/random/iter/randu` );
 *
 * var iter = iterBessely1( randu() );
 *
@@ -40,12 +51,9 @@
 *
 * // ...
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function iterBessely1( iterator: Iterator ): Iterator;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = iterBessely1;
